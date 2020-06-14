@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block content %}
+<form action="/verificate" method="POST" enctype="multipart/form-data">
+  <div class="container py-5">
+      <h1 class="Display-1 text-white text-center">Please, upload your image</h1>
+      <br><br><br>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+            aria-describedby="inputGroupFileAddon01" required>
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+
+    <br><br>
+
+    <div class="col btn-group text-center">
+        <button name="Resize" type="submit" class="btn btn-outline-light">Resize</button>
+        <button name="Convert" type="submit" class="btn btn-outline-light">Convert to PNG</button>
+        <!-- <button name="Rotate" type="submit" class="btn btn-outline-light">Rotate</button>
+        <button name="Compress" type="submit" class="btn btn-outline-light">Compress</button> -->
+    </div>
+  </div>
+</form>
+  {% endblock %}
