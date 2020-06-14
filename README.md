@@ -1,6 +1,6 @@
-# ImageResizer
+# ImageResizer-er
 
-> Resize your images online
+> Resize and convert your images online
 
 With this web app you can resize your photos or compress them effortless.
 
@@ -31,7 +31,7 @@ app.py
 
 ## Usage
 
-You uploadyour picture and select the new size of it, then your download will start, simple.
+You upload your picture and select either make it half its actual size or convert it to PNG, then your download will start, simple.
 
 ## Contributing
 
