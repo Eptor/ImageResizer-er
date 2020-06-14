@@ -6,12 +6,19 @@
     <title>ImageResizer-er</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     {% block link %}
     {% endblock %}
 </head>
 <body>
     <nav class="navbar navbar-dark bg-custom">
-      <span class="navbar-brand mb-0 h1">Resizer-er</span>
+      <a class="navbar-brand" href="/">
+        <img src="/static/img/favicon/icon.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        ImageResizer-er
+      </a>
     </nav>
 
     {% block content %}
