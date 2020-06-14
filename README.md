@@ -4,7 +4,7 @@
 
 With this web app you can resize your photos or compress them effortless.
 
-![](index_preview.jpg)
+![](static/img/index_preview.jpg)
 
 ## Run locally
 
