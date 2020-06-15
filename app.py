@@ -1,6 +1,3 @@
-# Local modules
-from modules.PIL_handler import *
-
 # Vanilla modules
 import os
 
@@ -57,7 +54,7 @@ def convert(image):
     img = Image.open(os.path.join(UPLOAD_FOLDER,image))
     width, height = img.size
     img = img.resize((width // 2, height // 2), Image.LANCZOS)
-    name = f"{os.path.splitext(image)[0]}.png"
+    name = f"{os.path.splitext(image)[0]}.png" # Splitext()[0] returns the path, [1] returns the extension
     img.save(os.path.join(UPLOAD_FOLDER,name))
     return send_file(os.path.join(os.path.join(UPLOAD_FOLDER,name)), as_attachment=True)
 
