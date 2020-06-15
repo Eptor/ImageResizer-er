@@ -11,7 +11,13 @@ from PIL import Image
 
 app = Flask(__name__)
 
+ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg']
 UPLOAD_FOLDER = os.path.join(os.getcwd() + "/static/uploads/")
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route("/")
 def main():
@@ -24,16 +30,17 @@ def main():
 @app.route("/verificate", methods=["GET", "POST"])
 def verification():
     if request.method == "POST":
-        if "Resize" in request.form:
-            image = request.files["file"]
+        image = request.files["file"]
+        if "Resize" in request.form and allowed_file(image.filename):
             filename = secure_filename(image.filename)
             image.save(os.path.join(UPLOAD_FOLDER, filename))
             return redirect(url_for("resize", image=filename))
-        elif "Convert" in request.form:
-            image = request.files["file"]
+        elif "Convert" in request.form and allowed_file(image.filename):
             filename = secure_filename(image.filename)
             image.save(os.path.join(UPLOAD_FOLDER, filename))
             return redirect(url_for("convert", image=filename))
+        else:
+            return render_template("error.html", error="The file uploaded is not an allowed extension.")
     else:
         return redirect("main")
 
@@ -56,4 +63,4 @@ def convert(image):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
