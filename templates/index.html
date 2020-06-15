@@ -31,3 +31,15 @@
   </div>
 </form>
   {% endblock %}
+
+  {% block scripts %}
+  <script>
+      $('#inputGroupFile01').on('change',function(){
+          // Get your file input (by it's id)
+          var fileInput = document.getElementById('inputGroupFile01');
+          // Use a regular expression to pull the file name only
+          var fileName = fileInput.value.split(/(\\|\/)/g).pop();
+          $(this).next('.custom-file-label').html(fileName);
+      })
+  </script>
+  {% endblock %}
